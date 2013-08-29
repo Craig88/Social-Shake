@@ -10,7 +10,7 @@ sudo apt-get install -y python-pip python-dev
 
 sudo pip install networkx
 sudo pip install pyparsing==1.5.7
-sudo pip install
+sudo pip install numpy
 sudo pip install Matplotlib
 
 cd Social_Shake_Source
