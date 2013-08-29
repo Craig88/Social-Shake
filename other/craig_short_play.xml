@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE PLAY SYSTEM "play.dtd">
+
+<PLAY>
+
+<TITLE>The Boy with the Wooly Jumper</TITLE>
+
+<ACT><TITLE>ACT I</TITLE>
+
+<SCENE><TITLE>SCENE I.  An attic</TITLE>
+<STAGEDIR>Enter ROSS and MALCOLM</STAGEDIR>
+
+<SPEECH>
+<SPEAKER>ROSS</SPEAKER>
+<LINE>Pray thee, I see thou sport the finest of Wooly Jumpers.</LINE>
+</SPEECH>
+
+
+
+<SPEECH>
+<SPEAKER>MALCOLM</SPEAKER>
+<LINE>Yes, a good jumper it is indeed.</LINE>
+</SPEECH>
+
+
+
+<STAGEDIR>Exit MALCOLM, pursued by a bear.</STAGEDIR>
+</SCENE>
+
+</ACT>
+</PLAY>

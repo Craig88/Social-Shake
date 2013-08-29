@@ -1,0 +1,61 @@
+    dom = parse(play)
+    speaker_count = Counter()
+    #This will keep a track of how many lines each character has in the act
+    #and stores it in the form (Characters_Name: number_of_lines)
+
+    count_lines_for_each_speaker(dom, speaker_count) 
+
+    #create an empty list
+    actors_scene = {} 
+    get_list_of_speakers_each_scene(dom, actors_scene)
+    
+    #actors_scene now holds information about all the characters in each scene that speak
+    #in the form {ACT I SCENE I': set(['HORATIO', 'FRANCISCO', 'BERNARDO'])} 
+
+    #create an empty graph to draw our network on
+    graph = pydot.Dot(graph_type='graph',overlap=False)
+    
+
+    #for every person who speaks, we are going to need to add them as a node on the graph
+    #the more lines they say (the larger their speaker count) the larger we will draw the node
+    add_nodes_to_graph(speaker_count, graph)
+
+
+    edge_list = {}
+    add_lines_to_graph(edge_list, actors_scene, graph, num_overlap)
+  
+    #save the graph to an image file
+    save_graph(graph, num_overlap)
+
+    ###
+
+    
+
+        dom = parse(play)
+    speaker_count = Counter()
+    #This will keep a track of how many lines each character has in the act
+    #and stores it in the form (Characters_Name: number_of_lines)
+
+    count_lines_for_each_speaker(dom, speaker_count) 
+
+    #create an empty list
+    actors_scene = {} 
+    get_list_of_speakers_each_scene(dom, actors_scene)
+    
+    #actors_scene now holds information about all the characters in each scene that speak
+    #in the form {ACT I SCENE I': set(['HORATIO', 'FRANCISCO', 'BERNARDO'])} 
+
+    #create an empty graph to draw our network on
+    graph = pydot.Dot(graph_type='graph',overlap=False)
+    
+
+    #for every person who speaks, we are going to need to add them as a node on the graph
+    #the more lines they say (the larger their speaker count) the larger we will draw the node
+    add_nodes_to_graph(speaker_count, graph)
+
+
+    edge_list = {}
+    add_lines_to_graph(edge_list, actors_scene, graph, num_overlap)
+  
+    #save the graph to an image file
+    save_graph(graph, num_overlap)

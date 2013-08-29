@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<play> 
+	<title>The Boy with the Wooly Jumper</title>
+	<act>
+	
+	<scene>
+
+		<stagedir>Enter ROSS and MALCOLM</stagedir>
+
+		<speech>
+			<speaker>ROSS</speaker>
+			<line>Pray thee, I see thou sport the finest of Wooly Jumpers.</line>
+		</speech>
+
+		<speech>
+			<speaker>MALCOLM</speaker>
+			<line>Yes, a good jumper it is indeed.</line>
+		</speech>
+
+		<stagedir>Exit MALCOLM, pursued by a bear.</stagedir>
+
+
+	</scene>
+
+	</act>
+</play>
