@@ -134,6 +134,15 @@ def analyze(play,num_overlap):
 
     print "This hasn't been implemented yet"
 
+    #STEP 1
+    #STEP 2
+    #STEP 3
+    #STEP 4
+    #STEP 5
+    #STEP 6
+    #STEP 7
+
+
 # ******************************************
 # ******************************************
 # ***** The main program starts here ******* 
