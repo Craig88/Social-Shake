@@ -172,6 +172,7 @@ subprocess.Popen('say -v "Bruce" "Welcome to Social Shakespeare"', shell=True)
 
 for current_act in range(1,6):
 
+    #for play in glob.glob('Plays/wives.xml'):
     for play in glob.glob('Plays/hamlet.xml'):
 
         print "I will now analyse Act {}.".format(current_act)
