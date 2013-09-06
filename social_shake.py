@@ -8,6 +8,10 @@ import time
 import subprocess
 from math import log, sqrt
 
+import Tkinter as tk #for the GUI
+import tkFileDialog #for the GUI
+
+
 # A Python program to analyse the plays of William Shakespeare
 
 # Social Shakespeare - social_shake.py
@@ -17,7 +21,7 @@ from math import log, sqrt
 
 
 def save_graph(graph, num_label):
-    #given a graph of an Act, saves it as an png file
+    """ given a graph of an Act, saves it as an png file """
     print 'I am saving the graph to a file'
     graph.write_png('Output/Play'+'_Act' + str(num_label) +'.png',prog='neato')
 
@@ -170,11 +174,16 @@ def analyze(play,num_overlap):
 print "Welcome to Social Shakespeare App"
 subprocess.Popen('say -v "Bruce" "Welcome to Social Shakespeare"', shell=True)
 
+app_gui = tk.Tk()
+# show file dialog without Tkinter window
+app_gui.withdraw()
+filename = tkFileDialog.askopenfilename(initialdir="Plays")
+#print filename
+
 for current_act in range(1,6):
 
-    #for play in glob.glob('Plays/wives.xml'):
-    for play in glob.glob('Plays/hamlet.xml'):
-
+    
+    for play in glob.glob(filename):
         print "I will now analyse Act {}.".format(current_act)
         analyze(play,current_act)
 
