@@ -38,8 +38,7 @@ def count_lines_for_each_speaker(dom, speaker_count):
         for speakers in node.getElementsByTagName('SPEAKER'):
             if speakers.firstChild:
                 speaker_count.update({speakers.firstChild.nodeValue.upper(): num_lines})
-                #print speaker_count
-                #time.sleep(0.5)
+
 
 def get_list_of_speakers_each_scene(dom, actors_scene):
 
@@ -172,7 +171,7 @@ subprocess.Popen('say -v "Bruce" "Welcome to Social Shakespeare"', shell=True)
 
 for current_act in range(1,6):
 
-    #for play in glob.glob('Plays/wives.xml'):
+    
     for play in glob.glob('Plays/hamlet.xml'):
 
         print "I will now analyse Act {}.".format(current_act)
