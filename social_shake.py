@@ -10,6 +10,7 @@ from math import log, sqrt
 
 import Tkinter as tk #for the GUI
 import tkFileDialog #for the GUI
+from PIL import Image, ImageTk
 
 
 # A Python program to analyse the plays of William Shakespeare
@@ -174,15 +175,25 @@ def analyze(play,num_overlap):
 print "Welcome to Social Shakespeare App"
 subprocess.Popen('say -v "Bruce" "Welcome to Social Shakespeare"', shell=True)
 
-app_gui = tk.Tk()
-# show file dialog without Tkinter window
-app_gui.withdraw()
+#Set up the GUI
+appGui = tk.Tk()
+
+appGui.title("Social Shakespeare")
+ScreenSizeX = appGui.winfo_screenwidth()  # Get screen width [pixels]
+ScreenSizeY = appGui.winfo_screenheight() # Get screen height [pixels]
+WinSizeX = int(ScreenSizeX * 0.20)
+WinSizeY = WinSizeX                       #square
+WinPosX  = (ScreenSizeX - WinSizeX)/2 # Find left and up border of window
+WinPosY  = (ScreenSizeY - WinSizeY)/2
+appGui.geometry("%sx%s+%s+%s" % (WinSizeX,WinSizeY,WinPosX,WinPosY))
+
+myImage = Image.open("img/logo.jpg")
+myLogo = ImageTk.PhotoImage(myImage)
+
 filename = tkFileDialog.askopenfilename(initialdir="Plays")
 #print filename
 
-for current_act in range(1,6):
-
-    
+for current_act in range(1,6):    
     for play in glob.glob(filename):
         print "I will now analyse Act {}.".format(current_act)
         analyze(play,current_act)
