@@ -8,8 +8,9 @@ import time
 import subprocess
 from math import log, sqrt
 
-import Tkinter as tk #for the GUI
-import tkFileDialog #for the GUI
+import Tkinter 
+import tkFileDialog
+from Tkinter import Label
 from PIL import Image, ImageTk
 
 
@@ -176,7 +177,7 @@ print "Welcome to Social Shakespeare App"
 subprocess.Popen('say -v "Bruce" "Welcome to Social Shakespeare"', shell=True)
 
 #Set up the GUI
-appGui = tk.Tk()
+appGui = Tkinter.Tk()
 
 appGui.title("Social Shakespeare")
 ScreenSizeX = appGui.winfo_screenwidth()  # Get screen width [pixels]
@@ -190,8 +191,12 @@ appGui.geometry("%sx%s+%s+%s" % (WinSizeX,WinSizeY,WinPosX,WinPosY))
 myImage = Image.open("img/logo.jpg")
 myLogo = ImageTk.PhotoImage(myImage)
 
+label = Label(image=myLogo)
+label.image = myLogo # keep a reference!
+label.pack()
+
 filename = tkFileDialog.askopenfilename(initialdir="Plays")
-#print filename
+print filename
 
 for current_act in range(1,6):    
     for play in glob.glob(filename):
