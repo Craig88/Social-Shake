@@ -6,7 +6,6 @@ brew update
 brew install freetype 
 brew install libpng
 brew install graphviz
-brew install pip
 
 export PATH=$PATH:/usr/games/
 
