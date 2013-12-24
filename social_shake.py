@@ -7,6 +7,7 @@ import glob
 import time
 import subprocess
 from math import log, sqrt
+import os
 
 import Tkinter 
 import tkFileDialog
@@ -25,7 +26,11 @@ from PIL import Image, ImageTk
 def save_graph(graph, num_label):
     """ given a graph of an Act, saves it as an png file """
     print 'I am saving the graph to a file'
-    graph.write_png('Output/Play'+'_Act' + str(num_label) +'.png',prog='neato')
+
+    myRoot = os.path.expanduser('~')
+    myDestination = os.path.join(myRoot, 'Desktop/Output_Act')
+    # graph.write_png('Output/Play'+'_Act' + str(num_label) +'.png',prog='neato')
+    graph.write_png(str(myDestination) + str(num_label) +'.png',prog='neato')
 
 def tidy_nodes(graph):
     keep_nodes = []
