@@ -59,6 +59,8 @@ http://xquartz.macosforge.org/landing/ <br/>
 http://stackoverflow.com/questions/739993/get-a-list-of-installed-python-modules <br/>
 https://code.google.com/p/pydot/ <br/>
 http://networkx.lanl.gov/install.html <br/>
+http://stackoverflow.com/questions/15951748/pydot-and-graphviz-error-couldnt-import-dot-parser-loading-of-dot-files-will <br\>
+
 
 Another interesting titbit
 
