@@ -67,3 +67,5 @@ Another interesting titbit
 `sudo pip uninstall pyparsing
 sudo pip install pyparsing==1.5.7
 sudo pip install pydot`
+
+'sudo pip install pydot2'
