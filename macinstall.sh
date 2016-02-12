@@ -3,6 +3,7 @@
 git clone https://github.com/Craig88/Social_Shake_Source.git
 
 brew update
+brew install python
 brew install freetype 
 brew install libpng
 brew install graphviz
