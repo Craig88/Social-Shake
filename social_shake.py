@@ -17,11 +17,12 @@ from math import log, sqrt
 
 
 def save_graph(graph, num_label):
-    #given a graph of an Act, saves it as an png file
+    #given a graph of an relationship level, saves it as an png file
     print 'I am saving the graph to a file'
-    graph.write_png('Output/Play'+'_Act' + str(num_label) +'.png',prog='neato')
+    graph.write_png('Output/Play'+'_Level' + str(num_label) +'.png',prog='neato')
 
 def tidy_nodes(graph):
+    #remove any nodes that have no edges 
     keep_nodes = []
     for edge in graph.get_edge_list():
         keep_nodes.append(edge.get_source())
@@ -88,7 +89,7 @@ def add_nodes_to_graph(speaker_count, graph):
 
         graph.add_node(node)
 
-def add_lines_to_graph(edge_list, actors_scene, graph, num_overlap):
+def add_lines_to_graph(edge_list, actors_scene, graph, relationship_level):
     #                 #for every character,
     #                 #draw a line between them and every other character they appear
     #                 #in a scene with
@@ -114,26 +115,23 @@ def add_lines_to_graph(edge_list, actors_scene, graph, num_overlap):
                             )
 
         for edge in edge_list:
-            if edge_list[edge].get_weight()>=num_overlap:
+            if edge_list[edge].get_weight()>=relationship_level: #only add to graph if it's >= the relationship level
                 graph.add_edge(edge_list[edge])
 
 
         tidy_nodes(graph)                
 
-    #                 #for every character,
-    #                 #draw a line between them and every other character they appear
-    #                 #in a scene with
-    #                 #if a character appears in a scene with a character again, make the line thicker
+    
 
 # ******************************************
 # ******************************************
-def analyze(play,num_overlap):
+def analyze(play,relationship_level):
 # ******************************************
 # ******************************************
 
     dom = parse(play)
     speaker_count = Counter()
-    #This will keep a track of how many lines each character has in the act
+    #This will keep a track of how many lines each character has in the play
     #and stores it in the form (Characters_Name: number_of_lines)
 
     count_lines_for_each_speaker(dom, speaker_count) 
@@ -154,11 +152,12 @@ def analyze(play,num_overlap):
     add_nodes_to_graph(speaker_count, graph)
 
 
+    #draw the relationships between the people
     edge_list = {}
-    add_lines_to_graph(edge_list, actors_scene, graph, num_overlap)
+    add_lines_to_graph(edge_list, actors_scene, graph, relationship_level)
   
     #save the graph to an image file
-    save_graph(graph, num_overlap)
+    save_graph(graph, relationship_level)
 
 # ******************************************
 # ******************************************
@@ -169,13 +168,13 @@ def analyze(play,num_overlap):
 print "Welcome to Social Shakespeare App"
 subprocess.Popen('say -v "Bruce" "Welcome to Social Shakespeare"', shell=True)
 
-for current_act in range(1,6):
+for relationship_level in range(1,10):
 
     
-    for play in glob.glob('Plays/hamlet.xml'):
+    for play in glob.glob('Plays/othello.xml'):
 
-        print "I will now analyse Act {}.".format(current_act)
-        analyze(play,current_act)
+        print "I will now analyse Relationships Level {}.".format(relationship_level)
+        analyze(play,relationship_level)
 
 print "Analysis complete"
 subprocess.Popen('say -v "Bruce" "and the rest is silence"', shell=True)        
