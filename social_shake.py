@@ -19,7 +19,7 @@ from math import log, sqrt
 def save_graph(graph, num_label):
     #given a graph of an relationship level, saves it as an png file
     print 'I am saving the graph to a file'
-    graph.write_png('Output/Play'+'_Level' + str(num_label) +'.png',prog='neato')
+    graph.write_png('output/Play'+'_Level' + str(num_label) +'.png',prog='neato')
 
 def tidy_nodes(graph):
     #remove any nodes that have no edges 
@@ -171,7 +171,7 @@ subprocess.Popen('say -v "Bruce" "Welcome to Social Shakespeare"', shell=True)
 for relationship_level in range(1,10):
 
     
-    for play in glob.glob('Plays/othello.xml'):
+    for play in glob.glob('plays/macbeth.xml'):
 
         print "I will now analyse Relationships Level {}.".format(relationship_level)
         analyze(play,relationship_level)
